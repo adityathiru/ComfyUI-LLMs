@@ -1,2 +1,2 @@
-# comfyui-llms
+# ComfyUI LLMs
 LLM Nodes for ComfyUI
