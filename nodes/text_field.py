@@ -1,10 +1,11 @@
 class TextField:     
     @classmethod
     def INPUT_TYPES(cls):
-        return {"required": {       
-                    "text": ("STRING", {"multiline": True, "default": ""}),
-                    }
-                }
+        return {
+            "required": {
+                "text": ("STRING", {"multiline": True, "default": ""}),
+            }
+        }
 
     RETURN_TYPES = ("STRING",)
     FUNCTION = "text_input"

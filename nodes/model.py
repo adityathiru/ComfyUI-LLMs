@@ -1,12 +1,13 @@
 class Model:     
     @classmethod
     def INPUT_TYPES(cls):
-        return {"required": {  
-                    "vendor": ("STRING", {"default": "openai"}),
-                    "model": ("STRING", {"default": "gpt-4o"}),
-                    "max_tokens": ("INT", {"default": 4000, "min": 1}),
-                    }
-                }
+        return {
+            "required": {
+                "vendor": ("STRING", {"default": "openai"}),
+                "model": ("STRING", {"default": "gpt-4o"}),
+                "max_tokens": ("INT", {"default": 4000, "min": 1}),
+            }
+        }
 
     RETURN_TYPES = ("MODEL",)
     FUNCTION = "set_params"
