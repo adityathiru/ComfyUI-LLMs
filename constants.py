@@ -1,0 +1,2 @@
+PREFIX = "🤖"
+CATEGORY = f"{PREFIX} LLM"

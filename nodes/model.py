@@ -11,7 +11,9 @@ class Model:
     RETURN_TYPES = ("MODEL",)
     FUNCTION = "set_params"
     OUTPUT_NODE = True
-    CATEGORY = "LLMNodes"
+    CATEGORY = "🤖 LLM"
 
     def set_params(self, vendor, model, max_tokens):
+        # TODO: introduce a stateful LLM object notion
+        # TODO: share the LLM object around, to maintain state for continuation, agentic workflows
         return ({"vendor": vendor, "model": model, "max_tokens": max_tokens},)

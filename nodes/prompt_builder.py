@@ -21,7 +21,7 @@ class PromptBuilder:
     RETURN_TYPES = ("STRING",)
     FUNCTION = "process_template"
     OUTPUT_NODE = True
-    CATEGORY = "LLMNodes"
+    CATEGORY = "🤖 LLM"
 
     def process_template(self, prompt_template, **kwargs):
         jinja_template = Template(prompt_template)

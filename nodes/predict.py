@@ -32,7 +32,7 @@ class Predict:
     RETURN_TYPES = ("STRING",)
     FUNCTION = "predict"
     OUTPUT_NODE = True
-    CATEGORY = "LLMNodes"
+    CATEGORY = "🤖 LLM"
 
     def images_to_base64(self, images):
         images_base64 = []
@@ -57,9 +57,6 @@ class Predict:
         return images_base64
 
     def predict(self, system_prompt, user_prompt, model_details, images=[]):
-        print("got to predict function in predict.py")
-        print("model_details", model_details)
-
         vendor = model_details['vendor']
         model = model_details['model']
         max_tokens = model_details['max_tokens']

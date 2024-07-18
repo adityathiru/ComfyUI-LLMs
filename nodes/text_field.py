@@ -10,8 +10,7 @@ class TextField:
     RETURN_TYPES = ("STRING",)
     FUNCTION = "text_input"
     OUTPUT_NODE = True
-    CATEGORY = "LLMNodes"
+    CATEGORY = "🤖 LLM"
 
     def text_input(self, text):
-        print("got input in text_field.py", text)
         return (text,)
