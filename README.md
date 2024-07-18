@@ -8,17 +8,21 @@ LLM Nodes for ComfyUI
 
 ## Installation
 1. Clone ComfyUI: `git clone https://github.com/comfyanonymous/ComfyUI.git`
-2. Go to `custom_nodes` directory
-3. Clone ComfyUI-LLMs inside ComfyUI/custom_nodes: `git clone https://github.com/adityathiru/ComfyUI-LLMs.git`
-4. Go back to the root of ComfyUI ; Start the ComfyUI server: `python main.py`
-4. Go to the ComfyUI interface and add a new flow
-5. Right-click anywhere in the flow and select "Add Node"
-6. Select "LLM" from the list of options to find the LLM nodes
+2. Follow the ComfyUI setup instructions
+3. Go to `custom_nodes` directory
+4. Clone ComfyUI-LLMs inside ComfyUI/custom_nodes: `git clone https://github.com/adityathiru/ComfyUI-LLMs.git`
+5. Install the requirements: `pip install -r requirements.txt`
+6. Go back to the root of ComfyUI ; Start the ComfyUI server: `python main.py`
+7. Go to the ComfyUI interface and add a new flow
+8. Right-click anywhere in the flow and select "Add Node"
+9. Select "LLM" from the list of options to find the LLM nodes
 
 ## Examples
-[Nodes Available](examples/examples-2.png)
-[Multi-Step Workflows with LLMs and Documents](examples/example-1.png)
+### Nodes Available
+![Nodes Available](examples/examples-nodes-available.png)
 
+### Multi-Step Workflows with LLMs and PDFs
+![Multi-Step Workflows with LLMs and Documents](examples/example-1.png)
 
 ## Roadmap
 1. [ ] Increased LLM Support and Validations
@@ -30,4 +34,4 @@ LLM Nodes for ComfyUI
 ## Appendix
 ### Other Useful ComfyUI Nodes for working with LLMs
 1. [ComfyUI-Documents](https://github.com/Excidos/ComfyUI-Documents.git): For loading PDFs, converting it into images, and injecting them into ComfyUI-LLMs
-2. [ComfyUI-Crystools](https://github.com/crystian/ComfyUI-Crystools): For various utilities like Displaying Text, Displaying Images, String Manipulation
+2. [ComfyUI-Crystools](https://github.com/crystian/ComfyUI-Crystools): For various utilities like Displaying Text, Displaying Images, String Manipulation etc.
