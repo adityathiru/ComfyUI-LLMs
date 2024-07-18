@@ -1,0 +1,5 @@
+openai
+anthropic
+numpy
+PIL
+jinja2
