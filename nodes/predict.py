@@ -66,11 +66,6 @@ class Predict:
             images_base64 = []
 
         if vendor.lower() == 'openai':
-            messages = []
-            messages.append({"role": "system", "content": system_prompt})
-            if previous_output:
-                messages.append({"role": "assistant", "content": previous_output})
-            messages.append({"role": "user", "content": user_prompt})
             messages = [
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": [
