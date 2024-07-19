@@ -2,7 +2,7 @@
 > Goal: To enable folks to rapidly build complex workflows with LLMs
 
 ```
-☠️ This is experimental and not recommended to use in a production environment (yet!)
+☠️ This is experimental and not recommended to use in a production environments. Have fun playing around!
 ```
 
 ## Features
