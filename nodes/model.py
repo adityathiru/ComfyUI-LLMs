@@ -1,4 +1,5 @@
 from ..llm import LLM, Conversation
+from ..llm.constants import flat_vendor_models
 
 class Model:
     @classmethod
@@ -26,11 +27,10 @@ class ModelV2:
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "vendor": ("STRING", {"default": "openai"}),
-                "model": ("STRING", {"default": "gpt-4o"}),
+                "model_name": (flat_vendor_models(), {"default": "openai/gpt-4o"}),
                 "stateful": ("BOOLEAN", {"default": False}),
                 "max_tokens": ("INT", {"default": 4000, "min": 1}),
-                "temperature": ("FLOAT", {"default": 0.7, "min": 0.0, "max": 2.0}),
+                "temperature": ("FLOAT", {"default": 0.5, "min": 0.0, "max": 1.0}),
             },
             # "optional": {
             #     "complete_if_out_of_tokens": ("BOOLEAN", {"default": True}),
@@ -43,9 +43,10 @@ class ModelV2:
     OUTPUT_NODE = True
     CATEGORY = "🤖 LLM"
 
-    def set_params(self, vendor, model, max_tokens, temperature, stateful):
+    def set_params(self, model_name, stateful, max_tokens, temperature):
         model_params = {"max_tokens": max_tokens, "temperature": temperature}
-        llm = LLM(vendor, model, model_params, stateful=stateful)()
+        vendor, model_name = model_name.split("/")
+        llm = LLM(vendor, model_name, model_params, stateful=stateful)()
         return (llm,)
 
     @classmethod

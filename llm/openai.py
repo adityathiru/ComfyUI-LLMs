@@ -3,6 +3,7 @@ from typing import Dict
 from openai import OpenAI
 from loguru import logger
 from tenacity import retry, stop_after_attempt, wait_exponential
+from .constants import SUPPORTED_MODELS
 from .custom_typing import Conversation, UserMessage, AssistantMessage
 from .base_llm import BaseLLM
 
@@ -11,7 +12,7 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 class BaseOpenAI(BaseLLM):
     VENDOR = "openai"
-    ALLOWED_MODELS = ["gpt-4o", "gpt-4-vision-preview"]
+    ALLOWED_MODELS = SUPPORTED_MODELS[VENDOR]
 
     def __init__(self, model: str, model_params: Dict[str, str] = {}, conversation: Conversation = Conversation(messages=[]), stateful: bool = True):
         logger.info(f"Initializing OpenAI with model: {model}, stateful: {stateful}")

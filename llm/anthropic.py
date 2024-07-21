@@ -4,6 +4,7 @@ from copy import deepcopy
 from anthropic import Anthropic
 from loguru import logger
 from tenacity import retry, stop_after_attempt, wait_exponential
+from .constants import SUPPORTED_MODELS
 from .custom_typing import Conversation, UserMessage, AssistantMessage
 from .base_llm import BaseLLM
 
@@ -12,7 +13,7 @@ ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
 
 class BaseAnthropic(BaseLLM):
     VENDOR = "anthropic"
-    ALLOWED_MODELS = ["claude-3-5-sonnet-20240620", "claude-3-opus-20240229"]
+    ALLOWED_MODELS = SUPPORTED_MODELS[VENDOR]
 
     def __init__(self, model: str, model_params: Dict[str, str] = {}, conversation: Conversation = Conversation(messages=[]), stateful: bool = True):
         logger.info(f"Initializing Anthropic with model: {model}, stateful: {stateful}")
