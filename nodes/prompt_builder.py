@@ -31,7 +31,6 @@ class PromptBuilder:
                 kwargs.pop(key)
         result = jinja_template.render(**kwargs)
 
-        print("Processed template in text_field.py:", result)
         return (result,)
 
     

@@ -21,9 +21,9 @@ class Predict:
     def INPUT_TYPES(cls):
         return {
 			"required": {
-                    "system_prompt": ("STRING", {"multiline": False, "forceInput": True}),
-                    "user_prompt": ("STRING", {"multiline": False, "forceInput": True}),
-                    "model_details": ("MODEL", {"forceInput": True}),
+                "system_prompt": ("STRING", {"multiline": False, "forceInput": True}),
+                "user_prompt": ("STRING", {"multiline": False, "forceInput": True}),
+                "model_details": ("MODEL", {"forceInput": True}),
 			},
             "optional": {
                 "images": ("IMAGE", {"multiple": True}),
@@ -109,9 +109,9 @@ class PredictV2:
     def INPUT_TYPES(cls):
         return {
 			"required": {
-                    "system_prompt": ("STRING", {"multiline": False, "forceInput": True, "default": ""}),
-                    "user_prompt": ("STRING", {"multiline": False, "forceInput": True, "default": ""}),
-                    "model_details": ("MODEL", {"forceInput": True}),
+                "system_prompt": ("STRING", {"multiline": False, "forceInput": True, "default": ""}),
+                "user_prompt": ("STRING", {"multiline": False, "forceInput": True, "default": ""}),
+                "model_details": ("MODEL", {"forceInput": True}),
 			},
             "optional": {
                 "images": ("IMAGE", {"multiple": True}),
