@@ -9,7 +9,7 @@ from .custom_typing import Conversation, UserMessage, AssistantMessage
 from .base_llm import BaseLLM
 
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
-
+anthropic_client = Anthropic(api_key=ANTHROPIC_API_KEY)
 
 class BaseAnthropic(BaseLLM):
     VENDOR = "anthropic"
@@ -17,7 +17,6 @@ class BaseAnthropic(BaseLLM):
 
     def __init__(self, model: str, model_params: Dict[str, str] = {}, conversation: Conversation = Conversation(messages=[]), stateful: bool = True):
         logger.info(f"Initializing Anthropic with model: {model}, stateful: {stateful}")
-        self.anthropic_client = Anthropic(api_key=ANTHROPIC_API_KEY)
         if model not in self.ALLOWED_MODELS:
             raise ValueError(f"Model {model} is not supported")
         super().__init__(self.VENDOR, model, model_params, conversation, stateful)
@@ -96,7 +95,7 @@ class BaseAnthropic(BaseLLM):
             system_text = system_message["content"]
             if "max_tokens" not in self.model_params:
                 self.model_params["max_tokens"] = 4000
-            response = self.anthropic_client.messages.create(
+            response = anthropic_client.messages.create(
                 model=self.model,
                 system=system_text,
                 messages=messages,

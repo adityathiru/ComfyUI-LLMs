@@ -1,5 +1,7 @@
 openai
 anthropic
 numpy
-PIL
+Pillow
 jinja2
+loguru
+tenacity

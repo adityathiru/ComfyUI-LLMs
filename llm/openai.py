@@ -8,7 +8,7 @@ from .custom_typing import Conversation, UserMessage, AssistantMessage
 from .base_llm import BaseLLM
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-
+openai_client = OpenAI(api_key=OPENAI_API_KEY)
 
 class BaseOpenAI(BaseLLM):
     VENDOR = "openai"
@@ -16,7 +16,6 @@ class BaseOpenAI(BaseLLM):
 
     def __init__(self, model: str, model_params: Dict[str, str] = {}, conversation: Conversation = Conversation(messages=[]), stateful: bool = True):
         logger.info(f"Initializing OpenAI with model: {model}, stateful: {stateful}")
-        self.openai_client = OpenAI(api_key=OPENAI_API_KEY)
         if model not in self.ALLOWED_MODELS:
             raise ValueError(f"Model {model} is not supported")
         super().__init__(self.VENDOR, model, model_params, conversation, stateful)
@@ -87,7 +86,7 @@ class BaseOpenAI(BaseLLM):
         logger.info("Running messages through OpenAI API")
         messages = self.__convert_conversation_to_messages(self.conversation)
         try:
-            response = self.openai_client.chat.completions.create(
+            response = openai_client.chat.completions.create(
                 model=self.model,
                 messages=messages,
                 **self.model_params
