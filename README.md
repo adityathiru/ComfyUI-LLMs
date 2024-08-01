@@ -29,8 +29,8 @@
 ![Multi-Step Workflows with LLMs and Documents](examples/example-1.png)
 
 ## Roadmap
-1. [ ] Increased LLM Support and Validations
-2. [ ] Stateful LLMs: For maintaing message history
+1. [x] Increased LLM Support and Validations
+2. [x] Stateful LLMs: For maintaing message history
 3. [ ] Agentic LLMs: ReACT-like architecture nodes
 4. [ ] ComfyUI + Airflow for Job Execution
 5. [ ] Customized ComfyUI for LLMs
